@@ -759,7 +759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joyStick: {fileID: 1261422369}
   _anim: {fileID: 8228113749381094148}
-  _moveSpeed: 5
+  _moveSpeed: 8
   rb: {fileID: 1789983635}
 --- !u!54 &1789983635
 Rigidbody:

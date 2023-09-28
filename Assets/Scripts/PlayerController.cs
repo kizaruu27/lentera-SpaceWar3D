@@ -13,6 +13,11 @@ namespace SpaceWar3D
 
         [SerializeField] private Rigidbody rb;
         private Vector3 _movement;
+        
+        //camera boundaries
+        private Vector2 minBounds;
+        private Vector2 maxBounds;
+        
 
         private void Update()
         {
@@ -24,11 +29,9 @@ namespace SpaceWar3D
             _movement = new Vector3();
             _movement.x = _joyStick.Horizontal * _moveSpeed * Time.deltaTime;
             _movement.y = _joyStick.Vertical * _moveSpeed * Time.deltaTime;
-
-            rb.MovePosition(rb.position + _movement);
             
-            // Debug.Log(_movement.x);
-
+            transform.Translate(_movement);
+            
             if (_movement.x < 0)
             {
                 Debug.Log("Left");
@@ -38,14 +41,13 @@ namespace SpaceWar3D
             {
                 Debug.Log("Right");
                 _anim.Play("Right");
-                // _anim.SetBool("isRight", true);
-                // _anim.SetBool("isLeft", false);
             }
             else
             {
                 Debug.Log("Idle");
                 _anim.Play("Idle");
             }
+
         }
     }
 }
