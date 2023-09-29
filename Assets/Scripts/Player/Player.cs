@@ -5,20 +5,16 @@ using UnityEngine;
 
 namespace SpaceWar3D
 {
-    public class PlayerController : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         [SerializeField] private FloatingJoystick _joyStick;
         [SerializeField] private Animator _anim;
         [SerializeField] private float _moveSpeed = 5f;
-
-        [SerializeField] private Rigidbody rb;
+        
         private Vector3 _movement;
-        
-        //camera boundaries
-        private Vector2 minBounds;
-        private Vector2 maxBounds;
-        
 
+        public event Action OnTakeDamage;
+        
         private void Update()
         {
             Move();
@@ -32,22 +28,18 @@ namespace SpaceWar3D
             
             transform.Translate(_movement);
             
-            if (_movement.x < 0)
-            {
-                Debug.Log("Left");
-                _anim.Play("Left");
-            }
-            else if (_movement.x > 0)
-            {
-                Debug.Log("Right");
-                _anim.Play("Right");
-            }
-            else
-            {
-                Debug.Log("Idle");
-                _anim.Play("Idle");
-            }
+            if (_movement.x < 0) _anim.Play("Left");
+            else if (_movement.x > 0) _anim.Play("Right");
+            else _anim.Play("Idle");
+        }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("EnemyProjectile") || other.CompareTag("Enemy"))
+            {
+                OnTakeDamage?.Invoke();
+                Destroy(other.gameObject);
+            }
         }
     }
 }

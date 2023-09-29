@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9181832017349881561}
   - component: {fileID: 9181832017349881560}
+  - component: {fileID: 5402788294604868512}
   m_Layer: 0
-  m_Name: Projectle
-  m_TagString: Untagged
+  m_Name: ENEMY_Projectle
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,8 +46,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcef6ebb05c0b84ba9dd7a79f211026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectileSpeed: 8
+  _projectileSpeed: -8
   bulletLifeTime: 3
+--- !u!135 &5402788294604868512
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9181832017349881558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9181832017891119991
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +123,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 711222efd7485534baa4a2faddf793d7, type: 2}
+  - {fileID: 2100000, guid: a008a62a5cc84844cb90730fbe7cbf02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -184,7 +198,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 711222efd7485534baa4a2faddf793d7, type: 2}
+  - {fileID: 2100000, guid: a008a62a5cc84844cb90730fbe7cbf02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

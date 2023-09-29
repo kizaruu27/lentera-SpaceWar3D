@@ -3,20 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
+// class ini dijadiin object pooling
+namespace SpaceWar3D
 {
-    [SerializeField] float shootInterval = 3;
-    [SerializeField] GameObject projectilePrefab;
-
-    private void Start()
+    public class PlayerShooting : MonoBehaviour
     {
-        StartCoroutine(ShootCoroutine());
-    }
+        [SerializeField] float shootInterval = 3;
+        [SerializeField] GameObject projectilePrefab;
 
-    IEnumerator ShootCoroutine()
-    {
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
-        yield return new WaitForSeconds(shootInterval);
-        StartCoroutine(ShootCoroutine());
+        private void Start()
+        {
+            StartCoroutine(ShootCoroutine());
+        }
+
+        IEnumerator ShootCoroutine()
+        {
+            Instantiate(projectilePrefab, transform.position, transform.rotation);
+            yield return new WaitForSeconds(shootInterval);
+            StartCoroutine(ShootCoroutine());
+        }
     }
 }
