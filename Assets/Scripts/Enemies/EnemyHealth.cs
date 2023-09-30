@@ -14,6 +14,8 @@ namespace SpaceWar3D
         delegate void OnEnemyDeath();
         private OnEnemyDeath onEnemyDeath;
 
+        public event Action OnDropItem;
+
         private void Start()
         {
             currentHealth = maxHealth;
@@ -29,7 +31,6 @@ namespace SpaceWar3D
         {
             enemy.OnHit -= EnemyTakeDamage;         
             onEnemyDeath -= EnemyDeath;
-
         }
         
         private void EnemyTakeDamage()
@@ -42,7 +43,7 @@ namespace SpaceWar3D
         
         private void EnemyDeath()
         {
-            // drop item disini
+            OnDropItem?.Invoke();
             Destroy(gameObject);
         }
     }

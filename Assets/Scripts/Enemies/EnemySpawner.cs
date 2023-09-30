@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SpaceWar3D
 {
-    public class EnemySpawner : MonoBehaviour
+    public class EnemySpawner : Singleton<EnemySpawner>
     {
         [SerializeField] private List<WaveConfigSO> waveConfigs;
         [SerializeField] private float timeBetweenWaves;
@@ -28,7 +28,9 @@ namespace SpaceWar3D
                 }
                 yield return new WaitForSeconds(timeBetweenWaves);
             }
-           
+
+            StartCoroutine(SpawnEnemyWaves());
+
         }
 
         public WaveConfigSO GetCurrentWave()

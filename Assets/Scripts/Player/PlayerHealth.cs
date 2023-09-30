@@ -12,6 +12,7 @@ namespace SpaceWar3D
         public int maxHealth;
         public int currentHealth { get; set; }
         public int index { get; set; }
+        
         public List<GameObject> healthUI;
 
         delegate void OnPlayerDeath();
@@ -40,13 +41,7 @@ namespace SpaceWar3D
                 healthUI[i].SetActive(true);
             }
         }
-
-        private void Update()
-        {
-           
-        }
-
-
+        
         void TakeDamage()
         {
             currentHealth--;

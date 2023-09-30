@@ -8,21 +8,16 @@ namespace SpaceWar3D
 {
     public class Enemy : MonoBehaviour
     {
-        private EnemySpawner enemySpawner;
+        // private EnemySpawner enemySpawner;
         private WaveConfigSO waveConfig;
         private List<Transform> wayPoints;
         private int wayPointIndex = 0;
 
         public event Action OnHit;
 
-        private void Awake()
-        {
-            enemySpawner = FindObjectOfType<EnemySpawner>();
-        }
-
         private void Start()
         {
-            waveConfig = enemySpawner.GetCurrentWave();
+            waveConfig = EnemySpawner.Instance.GetCurrentWave();
             wayPoints = waveConfig.GetWaypoint();
             transform.position = wayPoints[wayPointIndex].position;
         }
@@ -56,6 +51,11 @@ namespace SpaceWar3D
             if (other.CompareTag("Player") || other.CompareTag("Projectile"))
             {
                 OnHit?.Invoke();
+            }
+            
+            if (other.CompareTag("Projectile"))
+            {
+                Destroy(other.gameObject);
             }
         }
     }

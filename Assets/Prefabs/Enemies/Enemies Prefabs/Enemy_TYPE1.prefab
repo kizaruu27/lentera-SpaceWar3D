@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 9190077878075378275}
   - component: {fileID: 4735300144053954162}
   - component: {fileID: 3064534612783512706}
+  - component: {fileID: 3353138144568458384}
   m_Layer: 0
   m_Name: Enemy_TYPE1
   m_TagString: Enemy
@@ -142,6 +143,31 @@ MonoBehaviour:
   enemy: {fileID: 4735300144053954162}
   currentHealth: 0
   maxHealth: 1
+--- !u!114 &3353138144568458384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735300144053954160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6fca5ea03d1c9419e7e87620e5aed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 3064534612783512706}
+  itemsRate:
+  - itemRate: 20
+    itemPrefab: {fileID: 2896079832824481124, guid: 909a0af035cc2ed419f7dc50cded0ef7,
+      type: 3}
+  - itemRate: 10
+    itemPrefab: {fileID: 18411087420245508, guid: b375465dcdafa6f4f9be4530c8424aec,
+      type: 3}
+  - itemRate: 10
+    itemPrefab: {fileID: 630131932746823038, guid: 916584969cf0db345a76b035a40af056,
+      type: 3}
+  - itemRate: 60
+    itemPrefab: {fileID: 0}
 --- !u!1 &7282633877375790070
 GameObject:
   m_ObjectHideFlags: 0

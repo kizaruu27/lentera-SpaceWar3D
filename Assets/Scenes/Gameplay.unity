@@ -1747,6 +1747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d23248b9667c834b9dcabd2c44572f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputMethod: 0
   _joyStick: {fileID: 1261422369}
   _anim: {fileID: 8228113749381094148}
   _moveSpeed: 8

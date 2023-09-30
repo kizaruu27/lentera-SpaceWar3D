@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2896079832824481125}
   - component: {fileID: 2896079832824481146}
+  - component: {fileID: -6596342817116224383}
   m_Layer: 0
   m_Name: Item_HealthPowerUps
   m_TagString: HealthItem
@@ -46,6 +47,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.59
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6596342817116224383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896079832824481124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11260755f994ea40b357ab4624dbbea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemLifeTime: 10
 --- !u!1 &2896079834554877344
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Items : MonoBehaviour
+namespace SpaceWar3D
 {
-    [SerializeField] protected float itemLifeTime;
+    public abstract class Items : MonoBehaviour
+    {
+        [SerializeField] protected float itemLifeTime;
+    }
 }
+
