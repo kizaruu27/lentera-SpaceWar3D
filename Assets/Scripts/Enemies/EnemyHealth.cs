@@ -15,11 +15,7 @@ namespace SpaceWar3D
         private OnEnemyDeath onEnemyDeath;
 
         public event Action OnDropItem;
-
-        private void Start()
-        {
-            currentHealth = maxHealth;
-        }
+        
 
         private void OnEnable()
         {
@@ -33,9 +29,15 @@ namespace SpaceWar3D
             onEnemyDeath -= EnemyDeath;
         }
         
+        private void Start()
+        {
+            currentHealth = maxHealth;
+        }
+        
         private void EnemyTakeDamage()
         {
             currentHealth--;
+            SoundManager.Instance.PlayExplosionClip();
 
             if (currentHealth <= 0)
                 onEnemyDeath?.Invoke();

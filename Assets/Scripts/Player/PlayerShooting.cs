@@ -12,6 +12,9 @@ namespace SpaceWar3D
         public float shootInterval;
         [SerializeField] GameObject projectilePrefab;
 
+        [SerializeField] private AudioClip shootingClip;
+        [SerializeField] private bool isPlayingSound;
+
         private void Awake()
         {
             shootInterval = startingShootInterval;
@@ -25,6 +28,10 @@ namespace SpaceWar3D
         IEnumerator ShootCoroutine()
         {
             Instantiate(projectilePrefab, transform.position, transform.rotation);
+            
+            if (isPlayingSound)
+                SoundManager.Instance.PlayShootingClip(shootingClip);
+            
             yield return new WaitForSeconds(shootInterval);
             StartCoroutine(ShootCoroutine());
         }

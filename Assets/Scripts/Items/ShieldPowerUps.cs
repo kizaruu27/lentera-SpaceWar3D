@@ -22,6 +22,7 @@ namespace SpaceWar3D
 
         void ActivateShield()
         {
+            SoundManager.Instance.PlayItemClip();
             StartCoroutine(ShieldActive());
         }
 

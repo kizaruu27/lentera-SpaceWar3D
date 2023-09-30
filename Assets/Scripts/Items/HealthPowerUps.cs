@@ -23,6 +23,7 @@ namespace SpaceWar3D
     
         private void GetHealth()
         {
+            SoundManager.Instance.PlayItemClip();
             if (playerHealth.currentHealth == playerHealth.maxHealth)
                 return;
         

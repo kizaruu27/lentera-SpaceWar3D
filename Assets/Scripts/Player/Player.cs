@@ -43,6 +43,7 @@ namespace SpaceWar3D
             } 
             else if (inputMethod == InputMethod.KEYBOARD)
             {
+                _joyStick.gameObject.SetActive(false);
                 _movement = new Vector3();
                 _movement.x = Input.GetAxis("Horizontal") * _moveSpeed * Time.deltaTime;
                 _movement.y = Input.GetAxis("Vertical") * _moveSpeed * Time.deltaTime;

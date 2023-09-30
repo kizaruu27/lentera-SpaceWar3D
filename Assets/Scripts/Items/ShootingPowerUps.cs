@@ -24,6 +24,7 @@ namespace SpaceWar3D
         void ActivateTime()
         {
             Debug.Log("Get Item");       
+            SoundManager.Instance.PlayItemClip();
             StartCoroutine(ItemActive(itemLifeTime));
 
         }

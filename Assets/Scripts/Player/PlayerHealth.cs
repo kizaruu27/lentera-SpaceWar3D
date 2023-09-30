@@ -17,7 +17,8 @@ namespace SpaceWar3D
 
         delegate void OnPlayerDeath();
         private OnPlayerDeath onPlayerDeath;
-        
+
+        public event Action playerDeathEvent;
       
         private void OnEnable()
         {
@@ -60,6 +61,9 @@ namespace SpaceWar3D
             //game over
             Debug.Log("PlayerDeath");
             currentHealth = 0;
+            SoundManager.Instance.PlayExplosionClip();
+            playerDeathEvent?.Invoke();
+            Destroy(gameObject);
         }
 
 

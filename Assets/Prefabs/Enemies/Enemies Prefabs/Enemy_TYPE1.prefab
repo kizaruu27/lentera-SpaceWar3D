@@ -48,6 +48,8 @@ MonoBehaviour:
   shootInterval: 1
   projectilePrefab: {fileID: 9181832017349881558, guid: a5956833b04bcc645abba6fbd883a828,
     type: 3}
+  shootingClip: {fileID: 8300000, guid: affaface5d323944ab691cc717cf50db, type: 3}
+  isPlayingSound: 1
 --- !u!1 &4735300144053954160
 GameObject:
   m_ObjectHideFlags: 0
