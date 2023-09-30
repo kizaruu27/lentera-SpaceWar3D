@@ -8,8 +8,14 @@ namespace SpaceWar3D
 {
     public class PlayerShooting : MonoBehaviour
     {
-        [SerializeField] float shootInterval = 3;
+        public float startingShootInterval = 3f;
+        public float shootInterval;
         [SerializeField] GameObject projectilePrefab;
+
+        private void Awake()
+        {
+            shootInterval = startingShootInterval;
+        }
 
         private void Start()
         {

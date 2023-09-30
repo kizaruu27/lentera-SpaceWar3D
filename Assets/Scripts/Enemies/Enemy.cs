@@ -6,7 +6,7 @@ using UnityEngine;
 // class ini dijadiin singleton
 namespace SpaceWar3D
 {
-    public class EnemyPathfinder : MonoBehaviour
+    public class Enemy : MonoBehaviour
     {
         private EnemySpawner enemySpawner;
         private WaveConfigSO waveConfig;

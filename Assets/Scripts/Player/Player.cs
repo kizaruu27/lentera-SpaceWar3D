@@ -13,7 +13,10 @@ namespace SpaceWar3D
         
         private Vector3 _movement;
 
-        public event Action OnTakeDamage;
+        public static event Action OnTakeDamage;
+        public static event Action OnGetShootItems;
+        public static event Action OnGetHealthItems;
+        public static event Action OnGetShield;
         
         private void Update()
         {
@@ -38,6 +41,24 @@ namespace SpaceWar3D
             if (other.CompareTag("EnemyProjectile") || other.CompareTag("Enemy"))
             {
                 OnTakeDamage?.Invoke();
+                Destroy(other.gameObject);
+            }
+
+            if (other.CompareTag("ShootItem"))
+            {
+                OnGetShootItems?.Invoke();
+                Destroy(other.gameObject);
+            }
+
+            if (other.CompareTag("HealthItem"))
+            {
+                OnGetHealthItems?.Invoke();   
+                Destroy(other.gameObject);
+            }
+
+            if (other.CompareTag("ShieldItem"))
+            {
+                OnGetShield?.Invoke();
                 Destroy(other.gameObject);
             }
         }

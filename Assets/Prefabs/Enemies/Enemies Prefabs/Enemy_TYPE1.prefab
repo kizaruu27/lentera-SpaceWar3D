@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38315ab502c483749a6fd2ea6e3fc006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingShootInterval: 0.5
   shootInterval: 1
   projectilePrefab: {fileID: 9181832017349881558, guid: a5956833b04bcc645abba6fbd883a828,
     type: 3}
@@ -139,6 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4735300144053954162}
+  currentHealth: 0
+  maxHealth: 1
 --- !u!1 &7282633877375790070
 GameObject:
   m_ObjectHideFlags: 0

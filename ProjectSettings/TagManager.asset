@@ -7,6 +7,9 @@ TagManager:
   - EnemyProjectile
   - Enemy
   - Projectile
+  - ShootItem
+  - HealthItem
+  - ShieldItem
   layers:
   - Default
   - TransparentFX
