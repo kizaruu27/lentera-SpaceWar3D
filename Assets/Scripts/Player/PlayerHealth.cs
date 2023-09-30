@@ -19,6 +19,7 @@ namespace SpaceWar3D
         private OnPlayerDeath onPlayerDeath;
 
         public event Action playerDeathEvent;
+        public event Action onSaveScore;
       
         private void OnEnable()
         {
@@ -63,6 +64,7 @@ namespace SpaceWar3D
             currentHealth = 0;
             SoundManager.Instance.PlayExplosionClip();
             playerDeathEvent?.Invoke();
+            onSaveScore?.Invoke();
             Destroy(gameObject);
         }
 

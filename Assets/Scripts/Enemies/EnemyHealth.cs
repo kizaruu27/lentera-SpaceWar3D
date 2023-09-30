@@ -15,7 +15,7 @@ namespace SpaceWar3D
         private OnEnemyDeath onEnemyDeath;
 
         public event Action OnDropItem;
-        
+        public static event Action OnGetScore;
 
         private void OnEnable()
         {
@@ -46,6 +46,7 @@ namespace SpaceWar3D
         private void EnemyDeath()
         {
             OnDropItem?.Invoke();
+            OnGetScore?.Invoke();
             Destroy(gameObject);
         }
     }
