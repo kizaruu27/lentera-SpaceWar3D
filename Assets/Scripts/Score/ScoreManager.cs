@@ -9,48 +9,54 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private int score;
     [SerializeField] private int highScore;
-    [SerializeField] private int finalScore;
-    [SerializeField] private int additionalScore;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI highScoreTxt; 
 
-    [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private int additionalScore;
 
     private void OnEnable()
     {
         EnemyHealth.OnGetScore += AddScore;
-        playerHealth.onSaveScore += SaveScore;
+        PlayerHealth.onSaveScore += SetHighScore;
     }
 
     private void OnDisable()
     {
         EnemyHealth.OnGetScore -= AddScore;
-        playerHealth.onSaveScore -= SaveScore;
+        PlayerHealth.onSaveScore -= SetHighScore;
     }
 
     private void Start()
     {
-        Debug.Log("HighScore: " + PlayerPrefs.GetInt("HighScore"));
-        finalScore = 0;
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     private void Update()
     {
         scoreText.text = score.ToString();
+        highScoreTxt.text = "HighScore: " + highScore;
     }
 
     private void AddScore()
     {
-        score += additionalScore;
+        if (!PlayerHealth.isDead)
+            score += additionalScore;
     }
 
-    public void SaveScore()
+    public void SetHighScore()
     {
         if (score > highScore)
         {
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore);
         }
-        Debug.Log("HighScore after game: " + PlayerPrefs.GetInt("HighScore"));
+        
+        GetHighScore();
+    }
 
+    void GetHighScore()
+    {
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+        Debug.Log($"HIGHSCORE: {highScore}");
     }
 }

@@ -48,7 +48,7 @@ namespace SpaceWar3D
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") || other.CompareTag("Projectile"))
+            if (other.CompareTag("Player") || other.CompareTag("Projectile") || other.CompareTag("Shield"))
             {
                 OnHit?.Invoke();
             }

@@ -144,3 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemLifeTime: 10
+  playerTransform: {fileID: 0}
+  moveSpeed: 0.1

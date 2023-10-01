@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemLifeTime: 10
+  playerTransform: {fileID: 0}
+  moveSpeed: 0.1
 --- !u!1 &2896079834554877344
 GameObject:
   m_ObjectHideFlags: 0

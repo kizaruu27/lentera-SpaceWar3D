@@ -53,7 +53,7 @@ namespace SpaceWar3D
             
             if (_movement.x < 0) _anim.Play("Left");
             else if (_movement.x > 0) _anim.Play("Right");
-            else _anim.Play("Idle");
+            else _anim.Play("ShipAnim");
         }
 
         private void OnTriggerEnter(Collider other)

@@ -7,7 +7,7 @@ public class ShieldBehaviour : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EnemyProjectile") || other.CompareTag("Enemy"))
+        if (other.CompareTag("EnemyProjectile"))
             Destroy(other.gameObject);
     }
 }

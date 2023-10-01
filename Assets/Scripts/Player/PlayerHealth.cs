@@ -12,6 +12,7 @@ namespace SpaceWar3D
         public int maxHealth;
         public int currentHealth { get; set; }
         public int index { get; set; }
+        public static bool isDead;
         
         public List<GameObject> healthUI;
 
@@ -19,10 +20,11 @@ namespace SpaceWar3D
         private OnPlayerDeath onPlayerDeath;
 
         public event Action playerDeathEvent;
-        public event Action onSaveScore;
+        public static event Action onSaveScore;
       
         private void OnEnable()
         {
+            isDead = false;
             Player.OnTakeDamage += TakeDamage;
             onPlayerDeath += PlayerDeath;
         }
@@ -61,10 +63,12 @@ namespace SpaceWar3D
         {
             //game over
             Debug.Log("PlayerDeath");
+            isDead = true;
             currentHealth = 0;
             SoundManager.Instance.PlayExplosionClip();
             playerDeathEvent?.Invoke();
             onSaveScore?.Invoke();
+            // Time.timeScale = 0;
             Destroy(gameObject);
         }
 
