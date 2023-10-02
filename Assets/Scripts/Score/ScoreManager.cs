@@ -26,6 +26,11 @@ public class ScoreManager : MonoBehaviour
         PlayerHealth.onSaveScore -= SetHighScore;
     }
 
+    private void OnDestroy()
+    {
+        UIManager.Instance.ShowScore(score);
+    }
+
     private void Start()
     {
         highScore = PlayerPrefs.GetInt("HighScore", 0);

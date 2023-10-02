@@ -10,15 +10,15 @@ namespace SpaceWar3D
         [SerializeField] private PlayerHealth playerHealth;
         [SerializeField] private GameObject gameOverUI;
 
-        private void OnEnable()
-        {
-            playerHealth.playerDeathEvent += EnableGameOverUI;
-        }
-        
-        private void OnDisable()
-        {
-            playerHealth.playerDeathEvent -= EnableGameOverUI;
-        }
+        // private void OnEnable()
+        // {
+        //     playerHealth.playerDeathEvent += EnableGameOverUI;
+        // }
+        //
+        // private void OnDisable()
+        // {
+        //     playerHealth.playerDeathEvent -= EnableGameOverUI;
+        // }
 
         private void EnableGameOverUI()
         {

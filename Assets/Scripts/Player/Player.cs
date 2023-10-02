@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SpaceWar3D
 {
@@ -15,17 +16,25 @@ namespace SpaceWar3D
 
         [SerializeField] InputMethod inputMethod;
         
-        [SerializeField] private FloatingJoystick _joyStick;
-        [SerializeField] private Animator _anim;
-        [SerializeField] private float _moveSpeed = 5f;
+        [SerializeField] private FloatingJoystick joyStick;
+        [SerializeField] private Animator anim;
+        [SerializeField] private float moveSpeed = 5f;
+        private Vector3 movement;
         
-        private Vector3 _movement;
+        [SerializeField] private Canvas playerUICanvas;
+        [SerializeField] private ScoreManager scoreManager;
 
         public static event Action OnTakeDamage;
         public static event Action OnGetShootItems;
         public static event Action OnGetHealthItems;
         public static event Action OnGetShield;
-        
+
+        private void OnEnable()
+        {
+            playerUICanvas.transform.parent = null;
+            scoreManager.transform.parent = null;
+        }
+
         private void Update()
         {
             Move();
@@ -35,25 +44,25 @@ namespace SpaceWar3D
         {
             if (inputMethod == InputMethod.TOUCH)
             {
-                _movement = new Vector3();
-                _movement.x = _joyStick.Horizontal * _moveSpeed * Time.deltaTime;
-                _movement.y = _joyStick.Vertical * _moveSpeed * Time.deltaTime;
+                movement = new Vector3();
+                movement.x = joyStick.Horizontal * moveSpeed * Time.deltaTime;
+                movement.y = joyStick.Vertical * moveSpeed * Time.deltaTime;
             
-                transform.Translate(_movement);
+                transform.Translate(movement);
             } 
             else if (inputMethod == InputMethod.KEYBOARD)
             {
-                _joyStick.gameObject.SetActive(false);
-                _movement = new Vector3();
-                _movement.x = Input.GetAxis("Horizontal") * _moveSpeed * Time.deltaTime;
-                _movement.y = Input.GetAxis("Vertical") * _moveSpeed * Time.deltaTime;
+                joyStick.gameObject.SetActive(false);
+                movement = new Vector3();
+                movement.x = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+                movement.y = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
 
-                transform.Translate(_movement);
+                transform.Translate(movement);
             }
             
-            if (_movement.x < 0) _anim.Play("Left");
-            else if (_movement.x > 0) _anim.Play("Right");
-            else _anim.Play("ShipAnim");
+            if (movement.x < 0) anim.Play("Left");
+            else if (movement.x > 0) anim.Play("Right");
+            else anim.Play("ShipAnim");
         }
 
         private void OnTriggerEnter(Collider other)

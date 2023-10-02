@@ -19,7 +19,7 @@ namespace SpaceWar3D
         delegate void OnPlayerDeath();
         private OnPlayerDeath onPlayerDeath;
 
-        public event Action playerDeathEvent;
+        public static event Action playerDeathEvent;
         public static event Action onSaveScore;
       
         private void OnEnable()
@@ -68,7 +68,7 @@ namespace SpaceWar3D
             SoundManager.Instance.PlayExplosionClip();
             playerDeathEvent?.Invoke();
             onSaveScore?.Invoke();
-            // Time.timeScale = 0;
+            GameStateMachine.Instance.EndGame();
             Destroy(gameObject);
         }
 
