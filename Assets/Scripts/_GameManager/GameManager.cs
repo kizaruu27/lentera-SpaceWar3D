@@ -8,15 +8,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Player playerPrefab;
-    
-    // private void Start()
-    // {
-    //     Instantiate(playerPrefab);
-    // }
 
-    public void PlayGame()
+    public void QuitGame()
     {
-        GameStateMachine.Instance.PlayGame();
+        Application.Quit();
     }
 
     public void Restart()

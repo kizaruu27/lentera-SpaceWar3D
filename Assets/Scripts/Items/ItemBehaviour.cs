@@ -10,6 +10,7 @@ namespace SpaceWar3D
         [SerializeField] private float itemLifeTime;
         [SerializeField] private Transform playerTransform;
         [SerializeField] private float moveSpeed;
+        [SerializeField] private float rotateSpeed = 20f;
 
         private void OnEnable()
         {
@@ -30,7 +31,12 @@ namespace SpaceWar3D
         {
             Destroy(gameObject, itemLifeTime);
         }
-        
+
+        private void Update()
+        {
+            transform.Rotate(Vector3.up, -rotateSpeed * Time.deltaTime);
+        }
+
         private void LateUpdate()
         {
             if (playerTransform != null)
